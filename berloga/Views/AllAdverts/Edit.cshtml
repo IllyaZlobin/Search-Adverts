@@ -1,0 +1,84 @@
+﻿@model berloga.Models.AllAdverts
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+    <h4>AllAdverts</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="IdHome" />
+                <div class="form-group">
+                    <label asp-for="IdAdverts" class="control-label"></label>
+                    <select asp-for="IdAdverts" class="form-control" asp-items="ViewBag.IdAdverts"></select>
+                    <span asp-validation-for="IdAdverts" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdUser" class="control-label"></label>
+                    <select asp-for="IdUser" class="form-control" asp-items="ViewBag.IdUser"></select>
+                    <span asp-validation-for="IdUser" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdApartament" class="control-label"></label>
+                    <select asp-for="IdApartament" class="form-control" asp-items="ViewBag.IdApartament"></select>
+                    <span asp-validation-for="IdApartament" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TownDistrict" class="control-label"></label>
+                    <input asp-for="TownDistrict" class="form-control" />
+                    <span asp-validation-for="TownDistrict" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Adress" class="control-label"></label>
+                    <input asp-for="Adress" class="form-control" />
+                    <span asp-validation-for="Adress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NumOfRooms" class="control-label"></label>
+                    <input asp-for="NumOfRooms" class="form-control" />
+                    <span asp-validation-for="NumOfRooms" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Square" class="control-label"></label>
+                    <input asp-for="Square" class="form-control" />
+                    <span asp-validation-for="Square" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AboutHome" class="control-label"></label>
+                    <input asp-for="AboutHome" class="form-control" />
+                    <span asp-validation-for="AboutHome" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image" class="control-label"></label>
+                    <input asp-for="Image" class="form-control" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</body>
+</html>

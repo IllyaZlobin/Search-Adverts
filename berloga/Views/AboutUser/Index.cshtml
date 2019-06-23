@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model berloga.ViewModels.AboutUserViewModel
+<div class="row">
+    <div class="col-lg-9 col-md-9">
+        <p>Пользователь с логином: @Model.UserName</p>
+        <p>Емейлом: @Model.Email</p>
+        <p>О себе: @Model.about_yourstlf</p>
+    </div>
+    <div class="col-lg-3 col-md-3">
+        <a asp-route-name="@User.Identity.Name" asp-controller="Advert" asp-action="CreateAdvert" class="site-btn header-btn">Створити пропозицію</a>
+        <a asp-route-name="@User.Identity.Name" asp-controller="Advert" asp-action="MyAdverts" class="site-btn header-btn">Мої пропозиції</a>
+    </div>
+</div>

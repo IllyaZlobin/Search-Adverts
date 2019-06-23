@@ -1,0 +1,38 @@
+﻿@model berloga.ViewModels.RegisterAdvertViewModel
+
+@{
+    Layout = "_Layout";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <form method="POST" asp-controller="Advert" asp-action="CreateAdvert" class="advert-create-form" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly"></div>
+                <h4>Create advert</h4>
+                <select asp-for="IdSelectedAdvert" asp-items="@(new SelectList(@Model.AdvertList, "IdAdvert", "TypeOfAdvert1"));"></select>
+                <span asp-validation-for="AdvertList"></span>
+
+                <select asp-for="IdSelectedApartament" asp-items="@(new SelectList(@Model.ApartamentList, "IdApartament", "TypeOfApartament1"));"></select>
+                <span asp-validation-for="ApartamentList"></span>
+
+                <input type="text" name="towndistrict" asp-for="TownDistrict" placeholder="Місто" required />
+                <span asp-validation-for="TownDistrict"></span>
+                <input type="text" name="adress" asp-for="Adress" placeholder="Адреса" required />
+                <span asp-validation-for="Adress"></span>
+                <input type="text" name="numofrooms" asp-for="NumOfRooms" placeholder="Кількість кімнат" required />
+                <span asp-validation-for="NumOfRooms"></span>
+                <input type="text" name="square" asp-for="Square" placeholder="Площа" required />
+                <span asp-validation-for="Square"></span>
+                <input type="text" name="abouthome" asp-for="AboutHome" placeholder="Про будинок" required />
+                <span asp-validation-for="AboutHome"></span>
+                <input type="text" name="price" asp-for="Price" placeholder="Ціна" required />
+                <span asp-validation-for="Price"></span>
+                <input type="file" name="image" asp-for="Image" placeholder="Фото" />
+                <span asp-validation-for="Image"></span>
+
+                <input type="submit" name="submit" id="submit" class="site-btn" value="Створити" />
+            </form>
+        </div>
+    </div>
+</div>

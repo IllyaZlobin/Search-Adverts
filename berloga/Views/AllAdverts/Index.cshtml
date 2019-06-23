@@ -1,0 +1,97 @@
+﻿@model IEnumerable<berloga.Models.AllAdverts>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TownDistrict)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Adress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumOfRooms)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Square)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AboutHome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdAdvertsNavigation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdApartamentNavigation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdUserNavigation)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TownDistrict)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumOfRooms)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Square)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AboutHome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdAdvertsNavigation.TypeOfAdvert1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdApartamentNavigation.TypeOfApartament1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdUserNavigation.Id)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdHome">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdHome">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdHome">Delete</a>
+                </td>
+            </tr>
+}
+        </tbody>
+    </table>
+</body>
+</html>

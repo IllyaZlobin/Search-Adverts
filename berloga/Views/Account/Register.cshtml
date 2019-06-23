@@ -1,0 +1,72 @@
+﻿@model berloga.ViewModels.RegisterViewModel
+<html class="no-js" lang="ua">
+
+<head>
+    <title>WebUni - Education Template</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="WebUni Education Template">
+    <meta name="keywords" content="webuni, education, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/img/favicon.ico" rel="shortcut icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/css/owl.carousel.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="search-warp">
+            <div class="section-title text-white">
+                <h2><span>Here you can to register your account)</span></h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 offset-lg-1">
+                    <!-- search form -->
+                    <form method="POST" class="course-search-form" asp-controller="Account" asp-action="Register" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly"></div>
+
+                        <input asp-for="UserName" type="text" name="username" placeholder="Username" class="last-m" required>
+                        <span asp-validation-for="UserName"></span>
+
+                        <input asp-for="Email" class="last-m" type="text" name="email" placeholder="Email" class="last-m" required>
+                        <span asp-validation-for="Email"></span>
+
+                        <input asp-for="name" class="last-m" type="text" name="name" placeholder="your name" required>
+                        <span asp-validation-for="name"></span>
+
+                        <input asp-for="surname" class="last-m" type="text" name="surname" placeholder="your surname" required>
+                        <span asp-validation-for="surname"></span>
+
+                        <input asp-for="Password" type="password" class="last-m" name="password" placeholder="Password" required>
+                        <span asp-validation-for="Password"></span>
+
+                        <input asp-for="PasswordConfirm" type="password" class="last-m" name="password" placeholder="Confirm password" required>
+                        <span asp-validation-for="PasswordConfirm"></span>
+
+                        <input asp-for="about_yourstlf" class="about_yourstlf" class="last-m" multiple="multiple" type="text" name="аbout_yourstlf" placeholder="about yourself" required>
+                        <span asp-validation-for="about_yourstlf"></span>
+
+                        <button type="submit" class="site-btn btn-dark">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--====== Javascripts & Jquery ======-->
+    <script src="~/js/jquery-3.2.1.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/mixitup.min.js"></script>
+    <script src="~/js/circle-progress.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/main.js"></script>
+
+</body>
+</html>

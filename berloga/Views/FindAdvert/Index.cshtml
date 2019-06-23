@@ -1,0 +1,37 @@
+﻿@using berloga.ViewModels
+@model FindAdvertViewModel
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Пошук</title>
+</head>
+<body>
+    <!-- search section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-warp">
+                <div class="section-title text-white">
+                    <h2>Знайти пропозиції</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <!-- search form -->
+                        <form method="post" asp-controller="FindAdvert" asp-action="Find" class="course-search-form">
+                            <input type="text" asp-for="Price" name="price" placeholder="Мінімальна ціна $">
+                            <input type="text" asp-for="TownDistrict" name="towndistrict" class="last-m" placeholder="Місто">
+                            <button class="site-btn" type="submit">Знайти</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- search section end -->
+</body>
+</html>

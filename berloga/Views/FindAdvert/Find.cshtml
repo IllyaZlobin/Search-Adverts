@@ -1,0 +1,55 @@
+﻿@model IQueryable<AllAdverts>
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Find</title>
+</head>
+<body>
+    <!-- course section -->
+    <section class="course-section spad">
+        <div class="container">
+            <div class="section-title mb-0">
+                <h2>Результати пошуку</h2>
+            </div>
+        </div>
+        <div class="course-warp">
+            <ul class="course-filter controls">
+                <li class="control active" data-filter="all">Все</li>
+                <li class="control" data-filter=".Продажа">Продаж</li>
+                <li class="control" data-filter=".Оренда">Оренда</li>
+            </ul>
+            <div class="row course-items-area">
+                <!-- course -->
+                @foreach (var advert in Model)
+                {
+                    <div class="mix col-lg-3 col-md-4 col-sm-6 @advert.IdAdvertsNavigation.TypeOfAdvert1">
+                        <div class="course-item">
+                            <div class="course-thumb set-bg" data-setbg="data:image/jpeg;base64,@(Convert.ToBase64String(@advert.Image))">
+                                <div class="price">Price: $@advert.Price</div>
+                            </div>
+                            <div class="course-info">
+                                <div class="course-text">
+                                    <h4>@advert.TownDistrict</h4>
+                                    <p>@advert.Adress</p>
+                                    <p>@advert.Square м<sup>2</sup></p>
+                                    <div class="rooms">Кімнати: @advert.NumOfRooms </div>
+                                </div>
+                                <div class="course-author">
+                                    <p>@advert.AboutHome</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    <!-- course section end -->
+</body>
+</html>

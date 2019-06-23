@@ -1,0 +1,47 @@
+﻿@model berloga.ViewModels.LoginViewModel
+<html>
+
+<head>
+    <title>WebUni - Education Template</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="WebUni Education Template">
+    <meta name="keywords" content="webuni, education, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/css/owl.carousel.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+
+</head>
+<body>
+    <section class="signup-section spad">
+        <div class="signup-bg set-bg" data-setbg="../img/7.jpg"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="signup-warp">
+                        <div class="section-title text-white text-left">
+                            <h2>Sign up to make an advert</h2>
+                        </div>
+                    <form method="POST" class="course-search-form" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl" enctype="multipart/form-data">
+                        
+                        <input asp-for="Email" class="last-m" type="text" name="email" placeholder="Email"  required>
+                        <span asp-validation-for="Email"></span>
+
+                        <input asp-for="Password" class="last-m" type="password" name="password" placeholder="Password" required>
+                        <span asp-validation-for="Password"></span>
+
+                        <button type="submit" class="site-btn btn-dark">Sign Up</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

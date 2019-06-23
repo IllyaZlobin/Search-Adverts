@@ -1,0 +1,49 @@
+﻿@*@model berloga.ViewModels.AdvertViewModel*@
+@model IQueryable<AllAdverts>
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>My adverts</title>
+</head>
+<body>
+    <h1>Мої пропозиції</h1>
+    <div class="row">
+        @*@foreach (var advert in Model.userAllAdverts)
+            {
+                <div class="col-4"><h4>Адреса: </h4><p>@advert.Adress</p></div>
+                <div class="col-4"><h4>Про пропозицію: </h4><p>@advert.AboutHome</p></div>
+                <div class="col-2"><h4>Ціна: </h4><p>@advert.Price</p></div>
+            }
+            @foreach (var nameAdvert in Model.TypeOfAdvert)
+            {
+                <div class="col-1"><h4>Тип: </h4><p>@nameAdvert.TypeOfAdvert1</p></div>
+            }
+            @foreach (var nameApartament in Model.TypeOfApartaments)
+            {
+                <div class="col-1"><h4>Тип апартаментів: </h4><p>@nameApartament.TypeOfApartament1</p></div>
+            }*@
+        @foreach (var advert in Model)
+        {
+        <div class="col-1"><h4>Тип: </h4><p>@advert.IdAdvertsNavigation.TypeOfAdvert1</p></div>
+        <div class="col-1"><h4>Тип апртм: </h4><p>@advert.IdApartamentNavigation.TypeOfApartament1</p></div>
+        <div class="col-1"><h4>Місто: </h4><p>@advert.TownDistrict</p></div>
+        <div class="col-2"><h4>Адреса: </h4><p>@advert.Adress</p></div>
+        <div class="col-1"><h4>К-ть кімнат: </h4><p>@advert.Adress</p></div>
+        <div class="col-1"><h4>Площа: </h4><p>@advert.Square</p></div>
+        <div class="col-2"><h4>Про пропозицію: </h4><p>@advert.AboutHome</p></div>
+        <div class="col-1"><h4>Ціна: </h4><p>@advert.Price</p></div>
+        <div class="col-2">
+            @if (advert.Image != null)
+                {
+            <img class="" src="data:image/jpeg;base64,@(Convert.ToBase64String(advert.Image))" />
+                }
+        </div>
+        }
+    </div>
+</body>
+</html>
