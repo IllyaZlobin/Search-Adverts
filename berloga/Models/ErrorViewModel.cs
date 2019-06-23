@@ -1,5 +1,3 @@
-using System;
-
 namespace berloga.Models
 {
     public class ErrorViewModel

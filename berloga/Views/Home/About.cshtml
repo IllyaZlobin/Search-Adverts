@@ -1,7 +1,100 @@
-﻿@{
-    ViewData["Title"] = "About";
-}
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Search of Adverts</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Search of Adverts">
+    <meta name="keywords" content="webuni, education, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
 
-<p>Use this area to provide additional information.</p>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/css/owl.carousel.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header section -->
+    <header class="header-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-1 col-md-1">
+                </div>
+                <div class="col-lg-11 col-md-11">
+                    <nav class="main-menu">
+                        <ul>
+                            <li><a asp-controller="Home" asp-action="Index">Головна</a></li>
+                            <li><a asp-controller="Home" asp-action="About">Про нас</a></li>
+                            <li><a asp-controller="Home" asp-action="Developer">Розробник</a></li>
+                            <li><a asp-controller="FindAdvert" asp-action="Index">Пошук</a></li>
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <li><a asp-controller="Account" asp-action="Login">Увійти</a></li>
+                                <li><a asp-controller="Account" asp-action="Register">Реєстрація</a></li>
+                            }
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li><a asp-route-name="@User.Identity.Name" asp-controller="Advert" asp-action="CreateAdvert">Створити пропозицію</a></li>
+                                <li><a asp-route-name="@User.Identity.Name" asp-controller="Advert" asp-action="MyAdverts">Мої пропозиції</a></li>
+                                <li>
+                                    <a>
+                                        <form method="post" asp-controller="Account" asp-action="LogOff">
+                                            <input type="submit" value="Вийти" />
+                                        </form>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header section end -->
+    <!-- Hero section -->
+    <section class="hero-section set-bg" data-setbg="../img/7.jpg">
+        <div class="container">
+            <div class="hero-text ">
+                <h2><font>Провідне онлайн-агенство з пошуку нерухомості</font></h2>
+                <p><h3>Знаходь найкраще житло за мить !)</h3></p>
+                <p>Найцікавіші варіанти нерухомості за привабливими цінами по всій Україні і не тільки<br> Орендуй чи купуй швидко та безпечно</p>
+            </div>
+        </div>
+    </section>
+    <!-- Hero section end -->
+    
+
+    <!-- footer section -->
+    <footer class="footer-section">
+        <div class="footer-bottom">
+            <div class="footer-warp">
+                <div class="copyright">
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> This site have been created by Alexandra Borsuk
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer section end -->
+    <!--====== Javascripts & Jquery ======-->
+    <script src="~/js/jquery-3.2.1.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/mixitup.min.js"></script>
+    <script src="~/js/circle-progress.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/main.js"></script>
+</body>
+</html>

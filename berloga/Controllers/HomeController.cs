@@ -1,35 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using berloga.Models;
+using berloga.Models.Repositories;
+using berloga.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using berloga.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace berloga.Controllers
 {
     public class HomeController : Controller
     {
+        private UserManager<Users> _userManager;
+        private readonly berlogaContext _context;
+        private IRepositoryWrapper _repositoryWrapper;
+
+        public HomeController(UserManager<Users> userManager, berlogaContext context, IRepositoryWrapper repositoryWrapper)
+        {
+            _userManager = userManager;
+            _context = context;
+            _repositoryWrapper = repositoryWrapper;
+        }
+
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            var allAdverts = _context.AllAdverts.Include(i => i.IdUserNavigation).Include(i => i.IdAdvertsNavigation)
+               .Include(i => i.IdApartamentNavigation);
+            return View(allAdverts);
         }
 
+        [HttpGet]
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult Developer()
         {
             return View();
         }
